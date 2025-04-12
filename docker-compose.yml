@@ -1,5 +1,3 @@
-# Fichier docker-compose corrigé et commenté avec whiteboard lovasoa/wbo
-
 services:
   # Site statique (HTML/CSS/JS)
   frida_web:
@@ -67,7 +65,7 @@ services:
     ports:
       - "8083:80"
 
-  # Whiteboard : tableau blanc collaboratif (lovasoa/wbo)
+  # Whiteboard : tableau blanc collaboratif
   whiteboard:
     image: lovasoa/wbo
     ports:

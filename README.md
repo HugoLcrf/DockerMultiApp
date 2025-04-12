@@ -1,3 +1,6 @@
+
+## Projet réalisé en binôme : Hugo Lecerf / Iles Asma
+
 ## Objectif
 
 Ce projet consiste à mettre en production un environnement complet à l’aide de Docker et Docker Compose. L’infrastructure comprend :
