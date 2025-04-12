@@ -1,0 +1,17 @@
+{
+    "name": "frida/api",
+    "autoload": {
+        "psr-4": {
+            "Frida\\Api\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Alina",
+            "email": "alinaspicot@gmail.com"
+        }
+    ],
+    "require": {
+        "firebase/php-jwt": "^6.10"
+    }
+}

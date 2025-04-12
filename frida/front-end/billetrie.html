@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billeterie | Frida Kahlo</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style_nav.css">
+    <link rel="stylesheet" href="styles/style_billetrie.css">
+
+
+</head>
+
+<body class="billetrie">
+
+    <header>
+    <nav id="nav">
+        <a href="index.html"><img src="images/LogoFrida.svg" alt=" Accueil" class="LogoFrida"></a>
+        <ul>
+            <li>
+                <a href="index.html">Découvrir</a>
+            </li>
+            <li>
+                <a href="billetrie.html">Billets</a>
+            </li>
+            <li>
+                <a href="experimenter.html">Experimenter</a>
+            </li>
+            <li>
+                <a href="eng/billetrie.html">Eng</a>
+            </li>
+            <div id="retour"><img src="images/icon/croix.svg" alt="Retour"></div>
+        </ul>
+        <div id="icons"><img src="images/icon/burger.png" alt="BurgerMenu"></div>
+    </nav>
+</header>
+
+
+    <main>
+            <img src="images/frida-ticket.svg" class="image-ticket">
+        <div class="billeterie-formulaire">
+            <h1>Billeterie</h1>
+            <div aria-label="etapes" class="etapes">
+                <a href=# id="etape1" class="etape etape_active">Dates & horaires&#160;</a>
+                <a href=# id="etape2" class="etape"><span class="white">>&#160;</span>Nombre de billets&#160;</a>
+                <a href=#  id="etape3" class="etape"><span class="white">>&#160;</span>Coordonnées</a>
+            </div>
+            <p>Les champs suivis d’un <span>*</span> sont obligatoires.</p>   
+
+            <div class="form_wrap">
+            <form action="api/reservations.php" method="POST" id="billeterie-formulaire">             
+                    <fieldset id="part_1" class="onglets">
+
+                        <h2>DATE ET HORAIRE</h2>
+                        <div class="champ">
+                            <label for="date_calendrier" class="date-formulaire">Choisissez une date<span> *</span></label>
+                                <input type="date" id="date_calendrier" class="input_basique" name="date" required>
+                        </div>
+                        <div class="champ">
+                            <label for="horaire" class="horraire-formulaire">Choisissez un horaire<span> *</span></label>
+                            <div class="horaires">
+                                <input type="radio" id="radio1" name="heure" value="10:00" required>
+                                <label for="radio1">10:00</label>
+                                <input type="radio" id="radio2" name="heure" value="11:00" required>
+                                <label for="radio2">11:00</label>
+                                <input type="radio" id="radio3" name="heure" value="12:00" required>
+                                <label for="radio3">12:00</label>
+                                <input type="radio" id="radio4" name="heure" value="13:00" required>
+                                <label for="radio4">13:00</label>
+                                <input type="radio" id="radio5" name="heure" value="14:00" required>
+                                <label for="radio5">14:00</label>
+                                <input type="radio" id="radio6" name="heure" value="15:00" required>
+                                <label for="radio6">15:00</label>
+                                <input type="radio" id="radio7" name="heure" value="16:00" required>
+                                <label for="radio7">16:00</label>
+                                <input type="radio" id="radio8" name="heure" value="17:00" required>
+                                <label for="radio8">17:00</label>
+                                <input type="radio" id="radio9" name="heure" value="18:00" required>
+                                <label for="radio9">18:00</label>
+                            </div>
+                        </div>
+                        <button  type="button" class="button-form suivant1 bouton_basique" disabled>Suivant</button>
+                    </fieldset>
+
+                <fieldset  id="part_2" class="onglets">
+                    <h2>Billets</h2>
+
+                    <div class="container">
+                        <p>Choisissez un nombre de billet de visite (Jusqu’à 10 visiteurs). <span>*</span></p>
+                        
+                        <div class="amount">
+
+                            <div>
+                                <label for="billet_adulte">Billets adultes<span> *</span></label>
+                                <div class="adulte_billet">
+                                <button type="button" id="substractAdulte"><img src="images/icon/moins.svg" alt="ajouter un billet"></button>
+                            <input type="number" name="billet_adulte" class="billet_adulte input_basique" value="0">
+                            <button type="button" id="addAdulte"><img src="images/icon/plus.svg" alt="enlever un billet"></button>
+                            </div>
+                            </div>
+
+                            <div>
+                                <label for="billet_enfant">Billets enfants<span> *</span></label>
+                                <div class="enfant_billet">
+                                    <button type="button" id="substractEnfant"><img src="images/icon/moins.svg" alt="ajouter un billet"></button>
+    
+                                    <input type="number" name="billet_enfant" class="billet_enfant input_basique" value="0">
+                                    <button type="button" id="addEnfant"><img src="images/icon/plus.svg" alt="enlever un billet"></button>
+                                </div>
+    
+                            </div>
+
+                    </div>
+                    <button  type="button" class="button-form suivant2 bouton_basique" disabled>Suivant</button>
+                </fieldset>
+
+
+                <fieldset id="part_3" class="onglets">
+                    <h2>Coordonnées</h2>
+
+                    <div class="nom_prenom">
+                        <div>
+                            <label for="name_first">Prénom<span>*</span></label>
+                            <input type="text" id="prenom" name="prenom" class="input_basique" placeholder="Prénom" required>
+                        </div>
+                       <div>
+                        <label for="name_sec">Nom<span>*</span></label>
+                        <input type="text" id="nom" name="nom" class="input_basique"placeholder="Nom" required>
+                       </div>
+
+                    </div>
+                    
+                     <label for="email">Email<span>*</span></label>
+                     <input type="email" id="mail" name="mail" class="input_basique" placeholder="example@mail.fr"  required>
+
+                     <input type="submit" id="valider" class="bouton_basique" value="Valider" disabled>
+                </fieldset>
+            </form>
+        </div>
+        </div>
+    </main>
+    <div id="transition" class="transition"></div>
+    <footer>
+        <div id="footerContentMob">
+            <img src="images/Footer.svg" alt="">
+            <ul id="footerlist1">
+                <a href="index.html">ACCEUIL</a>
+                <a href="billetrie.html">BILLETS</a>
+                <a href="experimenter.html">EXPÉRIMENTER</a>
+                <a href="https://www.andeanart.gilbert.butmmi.o2switch.site/" target="_blank">NOTRE AGENCE</a>
+            </ul>
+
+            <div id="Reseau">
+                <a href="https://www.instagram.com/andean_art/" target="_blank"><img src="images/icon/insta.svg" alt="compte instagram"></a>
+                <a href="https://www.tiktok.com/@andean_art?_t=8l0XKrUMSJ7&_r=1" target="_blank"><img src="images/icon/tiktok.svg" alt="compte tiktok"></a>
+            </div>
+
+            <ul id="footerlist2" >
+                <a href="mention_legale.html">MENTIONS LÉGALES</a>
+                <a href="conditions_generale.html">CONDITIONS GÉNÉRALES DE VENTES</a>
+            </ul>
+        </div>
+
+        <div id="footerContent">
+            <div id="FooterCoo">
+                <img src="images/Footer.svg" alt="Frida Kahlo">
+                <p>2 Rue Albert Einstein</p>
+                <p>77420 Champs Sur Marne</p>
+            </div>
+            <div id="FooterNav">
+                <h2>NAVIGATION</h2>
+                    <a href="index.html">Acceuil</a>
+                    <a href="billetrie.html">Billets</a>
+                    <a href="experimenter.html">Expérimenter</a>
+            </div>
+            <div id="FooterLien">
+                <h2>LIENS UTILES</h2>
+                <a href="https://www.andeanart.gilbert.butmmi.o2switch.site/" target="_blank">Agence Frida</a>
+            </div>
+            <div id="ReseauPc">
+                <h2>NOUS SUIVRE</h2>
+                <div>
+                    <a href="https://www.instagram.com/andean_art/" target="_blank"><img src="images/icon/insta.svg" alt="compte instagram"></a>
+                    <a href="https://www.tiktok.com/@andean_art?_t=8l0XKrUMSJ7&_r=1" target="_blank"><img src="images/icon/tiktok.svg" alt="compte tiktok"></a>
+                </div>
+            </div>
+        </div>
+        <div id="Mentions">
+            <a href="mention_legale.html">Mentions légales</a>
+            <a href="conditions_generale.html">conditions générales de ventes</a>
+           </div>
+       </footer>
+
+    <script src="script/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="script/billeterie.js"></script>
+    <script src="script/envoidonnees.js"></script>    
+
+</body>
+</html>

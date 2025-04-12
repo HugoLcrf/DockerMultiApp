@@ -1,0 +1,743 @@
+@font-face {
+  font-family: "grandway";
+  src: url("../fonts/GrandwayDisplayTest-Regular-BF65e1421a3a077.woff") format('woff');
+  }
+
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "grandwaySemiBold";
+  src:
+  url("../fonts/grandway-font-family-1709626924-0/GrandwayTest-Semibold-BF65e1421a77b5b.otf") format("opentype");
+  }
+
+@font-face {
+  font-family: "GrandWay";
+  src:    url("../fonts/grandway-font-family-1709626924-0/GrandwayTest-Regular-BF65e1421a71b7e.otf")  format("opentype");
+}
+
+body{
+  font-family: "Raleway", sans-serif;
+  color: #F4FFC0;
+  overflow-x: hidden;
+}
+
+#nav-1 a{
+color: white;
+}
+
+:root {
+  --desert: #EF771D;
+  --communist: #C62B29;
+  --heritage: #667A0B;
+  --feminisme: #2E4C18;
+  --virtuelle: #E4944E;
+  --desertNuit:#7E9CE9;
+}
+
+
+
+/* page femme engagé */
+
+
+.femme_engage_page{
+  background-image: linear-gradient(0deg, rgba(255,0,0,0) 0%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.6777704831932774) 98%),
+  url("../images/page_femme_engage_mobile.svg");    
+  background-size: cover;
+}
+
+h1{
+  font-family: "Road Rage", sans-serif;
+  font-weight: 300;
+  font-size: 6rem;
+  text-transform: uppercase;
+}
+
+.introduction {
+margin-top: 30px;
+position: relative;
+}
+
+.femme_engage_page .introduction{
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin-left: auto;
+}
+
+.vie_social_page .introduction {
+width: 80%;
+margin: auto;
+}
+
+.introduction img{
+  display: none;
+  width: 400px;
+}
+
+.intro_element{
+  text-align: left;
+  z-index: 2;
+}
+.vie_social_page .intro_element {
+margin-top: 30px;
+}
+
+.intro_element h1:first-child{
+  font-size: 3.5rem;
+  line-height: 0.3; 
+}
+
+.intro_element p {
+  margin-bottom: 20px;
+
+}
+
+.bouton {
+  border-radius: 30px;
+  padding: 10px 10px 10px 10px;
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.5);
+  background-color:#F4FFC0;
+  font-size: 0.8rem;
+  min-width: 80px;
+  text-align: center;
+}
+
+.intro_element a {
+  text-decoration: none;
+  color: #521514;
+  text-transform: uppercase;
+}
+
+@keyframes moveLeftAndRight {
+  0% {
+      transform: translateX(0);
+  }
+  50% {
+      transform: translateX(50px); /* Adjust distance to move */
+  }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+.mini_faucille {
+animation: moveLeftAndRight 5s ease-in-out infinite;
+}
+
+/* tableaux */
+
+
+.partie_tableaux {
+  text-align: center; 
+}
+
+.tableaux {
+  display: inline-block; 
+  text-align: left; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tableaux img {
+  width:280px; 
+  margin-top: 60px;
+
+}
+
+.citation{
+  font-family: "GrandWay";
+  text-transform: uppercase;
+}
+
+.citation figcaption {
+  text-align: left;
+  font-size: 0.7rem; 
+
+}
+
+
+figcaption span {
+  font-size: 0.9rem; 
+  font-weight: bold;
+  font-family:"grandwaySemiBold";
+}
+
+
+.femme_engage_page footer{
+position: relative;
+  background:#5B0E0E;
+}
+
+.femme_engage_page .partie_1 #fleche img{
+display: none;
+}
+
+.femme_engage_page footer  #footerContent h2{
+color: white;
+}
+
+
+
+@media screen and (min-width: 600px) {
+.femme_engage_page{
+    background-image: linear-gradient(0deg, rgba(255,0,0,0) 0%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.6777704831932774) 98%),
+    url("../images/page_femme_engage_desktop.svg");    
+    width: 100%;
+    background-size: cover;
+    background-position: bottom;
+
+}
+
+.femme_engage_page footer{
+position: relative;
+  background:#7E1B1A;
+}
+
+h1{
+font-size: 8rem;
+}
+.intro_element h1:first-child{
+font-size: 5.5rem;
+}
+
+
+}
+
+@media screen and (min-width: 767px) {
+
+.femme_engage_page .partie_1 #fleche img{
+  display: block;
+}
+}
+
+
+
+
+@media screen and (min-width: 760px) {
+
+  .intro_element h1:first-child{
+      font-size: 5.5rem;
+  }
+  
+
+  h1{
+      font-size: 11rem;
+  }
+
+  .intro_element p{
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+  }
+
+  .bouton {
+      border-radius: 30px;
+      padding: 20px;
+      box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.5);
+      background-color:#F4FFC0;
+      font-size: 1rem;
+    }
+
+    .tableaux img {
+      width: 350px; 
+  
+  }
+
+
+.femme_engage_page #fleche{
+  margin-top: 18vh;
+  margin-right: 6vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.femme_engage_page .partie_1 #fleche img{
+  width: 15vw;
+}
+
+ 
+}
+
+
+
+@media screen and (min-width: 1000px) {
+
+.introduction img{
+  display: block;
+ }  
+ }  
+
+
+/* page heritage culturel */
+
+.heritage_culturel_page{
+background-image: linear-gradient(0deg, rgba(255,0,0,0) 0%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.6777704831932774) 98%),
+url("../images/heritage_culturel_mobile.svg");    
+background-size: cover;
+background-repeat: no-repeat;
+background-position: bottom;
+}
+
+.heritage_culturel_page footer  #footerContent h2{
+color: #7C937A;
+}
+
+.heritage_culturel_page footer{
+position: relative;
+background:#162117;
+}
+
+.heritage_culturel_page #fleche{
+display: none;
+justify-content: flex-end;
+}
+
+#fleche img {
+width: 15vw;
+}
+
+.heritage_culturel_page .tableaux{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.heritage_culturel_page .introduction img{
+position: absolute;
+right: 0;
+top: 0;
+z-index: -1;
+}
+
+.heritage_culturel_page .introduction {
+  width: 90%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+@keyframes flyingBird {
+  0% {
+      transform: translateX(-100%) rotate(-20deg);
+  }
+  100% {
+      transform: translateX(100%) rotate(25deg);
+  }
+  
+}
+
+.partie_2 .introduction img {
+  animation: flyingBird 10s linear ;
+}
+
+@media screen and (min-width: 767px) {
+
+.heritage_culturel_page{
+    background-image: linear-gradient(0deg, rgba(255,0,0,0) 0%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.6777704831932774) 98%),
+    url("../images/heritage_culturel_desktop.svg");    
+    width: 100%;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.heritage_culturel_page .tableaux{
+  align-items: start;
+ }
+
+ .tab_singe {
+  align-items: end !important;
+ }
+
+ .heritage_culturel_page main {
+  width: 80%;
+  margin: auto;
+ }
+
+ .heritage_culturel_page .introduction {
+  width: 100%;
+}
+
+ .heritage_culturel_page #fleche {
+  display: flex;
+ }
+
+}
+
+/* page vie sociale */
+
+.vie_social_page{
+  background-image: url(../images/Background/BackgroundMobVie.svg);
+  background-size: cover;
+  background-position: bottom;
+}
+
+
+
+#Decors{
+  margin-top: 5vh;
+  margin-bottom: 3vh;
+}
+
+#PcVieSocial{
+  display: none;
+}
+
+
+
+
+@media screen and (min-width: 767px) {
+
+  .vie_social_page{
+      background-image: url(../images/Background/BackgroundViePc.svg);
+      background-position: bottom;
+  }
+
+  .vie_social_page     h1{
+      font-size: 15rem;
+  }
+
+  .vie_social_page .intro_element h1:first-child {
+      font-size: 5rem;
+  }
+
+  .vie_social_page .partie_tableaux{
+      display: flex;
+      flex-wrap: wrap;
+  }
+
+  .femme_engage_page .partie_tableaux {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #MobileVieSocial{
+      display: none;
+  }
+
+  #PcVieSocial{
+      display: block;
+      display: flex;
+      width: 100%;
+      position: relative;
+      flex-direction: column;
+      }
+
+  
+      #ContentVie{
+          display: flex;
+          justify-content: space-evenly;
+      }
+
+  #left{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 1.5rem;
+      width: 45vw;
+    }
+
+    #right{
+      display: flex;
+      flex-direction: column;
+      width: 40vw;
+      align-items: center;
+      margin-top: 40vh;
+    }
+
+  .vie_social_page #PcVieSocial img{
+      width: 30vw;
+  }
+
+  .vie_social_page #PcVieSocial .decors{
+      width: 15vw;
+      margin-left: 10vw;
+  }
+
+  .vie_social_page .marginBot{
+      margin-bottom: 10vh;
+  }
+
+  .vie_social_page #fleche{
+      margin-right: 6vw;
+      display: flex;
+      justify-content: flex-end;
+  }
+
+  .vie_social_page #PcVieSocial #fleche img{
+      width: 15vw;
+  }
+
+}
+
+
+
+
+
+
+/* --------------------------------------FOOTER */
+
+.vie_social_page footer{
+  position: relative;
+  background: rgb(80,26,89);
+  background: linear-gradient(0deg, rgba(80,26,89,1) 0%, rgba(101,42,110,1) 100%);
+  }
+  
+
+  a{
+      color: white;
+      text-decoration: none;
+    }
+
+
+  #ButtonNavFooter{
+      font-family: "GrandWay";
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #FFFFFF;
+      width: 88vw;
+  }
+
+  #ButtonNavFooter a{
+      color: #521514;
+  }
+
+  #ButtonNavFooter p{
+      margin: 3vw;
+  }
+
+#footerContentMob{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: space-around;
+}
+
+#footerContent{
+  display: none;
+}
+
+#footerContent img{
+  width: 80vw;
+}
+
+#footerContentMob ul{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 0;
+}
+
+#footerlist1{
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 0.90rem;
+}
+
+#footerlist2{
+  font-size: 0.75rem;
+}
+
+#footerContentMob a {
+  padding-bottom: 2vh;
+}
+
+#Reseau{
+  width: 80vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#Reseau img{
+  width: 10vw;
+  height: 4vh;
+}
+
+#Mentions{
+  display: none;
+}
+
+@media screen and (min-width: 767px) {
+
+  footer{
+    height: 60vh;
+  }
+
+  #footerContentMob{
+          display: none;
+  }
+
+  #Mentions{
+    width: 60vw;
+    font-size: 1.25rem;
+    display: flex;
+    justify-content: space-evenly;
+    text-transform: uppercase;
+  }
+
+
+  #footerContent{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 50vh;
+    justify-content: space-evenly;
+    color: #FFFFFF;
+  }
+
+  #footerContent img{
+    width: 25vw;
+  }
+
+  #footerContent h2{
+    color: #AE4EBE;
+  }
+
+  #FooterCoo{
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+    justify-content: flex-start;
+  }
+
+  #FooterCoo p{
+    margin-top: 2vh;
+  }
+  
+  #FooterLien{
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+    justify-content: flex-start;
+  }
+
+  #FooterLien a {
+    text-transform: none;
+    font-size: 1.2rem;
+    margin-top: 2vh;
+  }
+
+  #FooterNav{
+    display: flex;
+    flex-direction: column;
+    height: 30vh;
+    justify-content: flex-start;
+  }
+
+  #FooterNav a {
+    text-transform: none;
+    font-size: 1.2rem;
+    margin-top: 2vh;
+  }
+
+  #ReseauPc{
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  #ReseauPc img{
+    margin-top: 5vh;
+    width: 3vw;
+    height: 4vh;
+  }
+}
+
+
+/* ...................................................Conditions generales */
+
+.conditions_page, .legale_page {
+  background-image: linear-gradient(0deg, rgba(255, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 85%, rgb(65 54 45 / 53%) 98%), url(../images/conditions_de_vente.svg); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #FFF4EA;
+}
+
+.nuit.conditions_page, .nuit.legale_page {
+  background-color: #413C65;
+  background-image: linear-gradient(0deg, rgba(255, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, 0.6777704831932774) 98%), url(../images/etoiles.svg);
+  background-size: contain;
+  background-repeat: repeat;
+}
+
+.nuit h1, .nuit p, .nuit li, .nuit h2 {
+  color: #F4FFC0;
+}
+
+.nuit .ligne {
+  border-top: 1px solid #F4FFC0;
+}
+
+.conditions_page footer , .legale_page footer{
+background: #28253F;
+}
+
+.conditions_page #transition , .legale_page #transition{
+background-image: url(../images/transitions/FooterPc.svg);
+position: relative;
+bottom: -2px;
+margin-top: -25vh;
+z-index: 1;
+height:60vh;
+width: 100%;
+background-position: bottom;
+background-repeat: no-repeat;
+background-size: contain;
+}
+
+.conditions, .mentions {
+width:80%; 
+margin: 0 auto; 
+text-align: left; 
+color:#28253F;
+margin-top: 40px;
+}
+
+
+.mentions ul{
+  margin-left: -37px;
+}
+
+.conditions h1, .mentions h1{
+font-size: 4.5rem;
+}
+
+.conditions h2, .mentions h2{
+font-family: "Road Rage", sans-serif;
+font-weight: 300;
+font-size: 3rem;
+margin-bottom: 20px;
+text-transform: uppercase;
+
+}
+
+.ligne {
+border-top: 1px solid #28253F; 
+margin: 20px 0; 
+}
+
+@keyframes animFleche {
+  0% {
+      transform: translateX(0);
+  }
+  50% {
+      transform: translateX(25px); 
+     }
+  100% {
+      transform: translateX(0);
+  }
+}
+
+#fleche img {
+animation: animFleche 4s ease-in-out infinite;
+}
+

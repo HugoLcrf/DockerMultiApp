@@ -1,0 +1,878 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+    --desert: #EF771D;
+    --communist: #C62B29;
+    --heritage: #667A0B;
+    --feminisme: #2E4C18;
+    --virtuelle: #E4944E;
+    --desertNuit:#7E9CE9;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    background-color: #FFF8F3;
+    background-color: rgb(33,31,47);
+  }
+
+  main {
+    overflow: hidden;
+
+  }
+
+  .nuit{
+    background-color: #4A4473 !important;
+  }
+ 
+  p {
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-weight: 300;
+    line-height: 1.4;
+  }
+
+
+ /* --------------------------------------HEADER */
+
+header{
+  background-image:linear-gradient(0deg, rgba(255,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6777704831932774) 98%), url(../images/AccueilMobile.svg);
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-color: #FFF8F3;
+}
+
+
+h1{
+  text-transform: uppercase;
+}
+
+
+/* HeaderContent*/
+
+#AccContent{
+  display: flex;
+  flex-direction: column;
+  height: 73%;
+  align-items: center;  
+  justify-content: center;
+
+}
+
+#AccContent .titre{
+background-image: url(../images/Titre.svg);
+background-repeat: no-repeat;
+background-position: center;
+background-size: contain;
+width: 85%;
+height: 50%;
+padding-bottom: 5vh;
+  
+  
+}
+
+#lancervideo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF4EB;
+  border: 2px solid #F3E2A2;
+  border-radius: 30px;
+  color: black;
+  font-size: 0.85rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+  text-align: center;
+  text-transform: uppercase;
+  padding: 15px 20px 15px 20px;
+  cursor: pointer;
+  z-index: 2;
+  transition: 0.2s;
+}
+#lancervideo:hover{
+  padding: 15px 30px 15px 30px;
+}
+
+
+@media screen and (min-width: 767px) {
+
+  p {
+    line-height: 1.8;
+  }
+
+  #AccContent .titre{
+      width: 65%;
+      height: 65%;
+      margin-bottom: 5vh;
+  }
+
+  #AccContent a{
+      width: 20vw;
+      font-size: 1rem;
+      transform: uppercase;
+      padding: 15px 20px 15px 20px;
+
+  }
+
+  .nuit header{
+    background-image: url(../images/BackgroundAccSombre.svg) !important;
+    background-color: #4A4473;
+  }
+
+  header{
+      background-image:linear-gradient(0deg, rgba(255,0,0,0) 0%, rgba(0,0,0,0) 50%, rgba(0,0,0,0.6777704831932774) 98%), url(../images/BackgroundAccueil.svg);
+  }
+
+}
+
+
+/* --------------------------------------MODE SOMBRE ACCUEIL */
+
+.nuit header{
+  background-image: url(../images/BackAccSombre.svg);
+  background-color: #4A4473;
+
+}
+
+.nuit #AccContent a{
+background-color: #312D49 ;
+border: 2px solid #34304F;
+box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+transform: uppercase;
+color: white;
+}
+
+.nuit #AccContent .titre{
+background-image: url(../images/TitreSombre.svg);
+}
+
+
+
+.transition_sable {
+  background-image: url(../images/transitions/Sable.svg);
+  height: 40vh!important;
+}
+.nuit .transition_sable {
+  background-image: url(../images/transitions/bleu_clair_mobile.svg);
+  height: 40vh!important;
+}
+
+@media screen and (min-width: 767px) {
+
+  .nuit .transition_sable {
+    background-image: url(../images/transitions/Bleu_Nuit.svg);
+  }
+
+
+  .nuit #AccContent{
+    justify-content: flex-end;
+    height: 55%;
+  }
+
+  #AccContent{
+    height: 56%;
+  }
+  
+}
+
+
+  /* --------------------------------------FOOTER */
+
+  .transition_footer {
+    display: block!important;
+  }
+
+  footer{
+    position: relative;
+    height: 80vh;
+    background: rgb(33,31,47);
+    background: linear-gradient(0deg, rgba(33,31,47,1) 6%, rgba(40,37,63,1) 94%);
+    }
+
+  #footerContentMob{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+    justify-content: space-around;
+  }
+
+  #footerContent{
+    display: none;
+  }
+
+  #footerContent img{
+    width: 80vw;
+  }
+
+  #footerContentMob ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+  }
+
+  #footerlist1{
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 0.90rem;
+  }
+
+  #footerlist2{
+    font-size: 0.75rem;
+  }
+
+  #footerContentMob a {
+    padding-bottom: 2vh;
+  }
+
+  #Reseau{
+    width: 80vw;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  #Reseau img{
+    width: 10vw;
+    height: 4vh;
+  }
+
+  #Mentions{
+    display: none;
+  }
+
+  @media screen and (min-width: 767px) {
+
+    footer{
+      height: 60vh;
+    }
+
+    #footerContentMob{
+            display: none;
+    }
+
+    #Mentions{
+      width: 60vw;
+      font-size: 1.25rem;
+      display: flex;
+      justify-content: space-evenly;
+      text-transform: uppercase;
+    }
+
+
+    #footerContent{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 50vh;
+      justify-content: space-evenly;
+      color: #FFFFFF;
+    }
+
+    #footerContent img{
+      width: 25vw;
+    }
+
+    #footerContent h2{
+      color: #7D7A93;
+    }
+
+    #FooterCoo{
+      display: flex;
+      flex-direction: column;
+      height: 30vh;
+      justify-content: flex-start;
+    }
+
+    #FooterCoo p{
+      margin-top: 2vh;
+    }
+    
+    #FooterLien{
+      display: flex;
+      flex-direction: column;
+      height: 30vh;
+      justify-content: flex-start;
+    }
+
+    #FooterLien a {
+      text-transform: none;
+      font-size: 1.2rem;
+      margin-top: 2vh;
+    }
+
+    #FooterNav{
+      display: flex;
+      flex-direction: column;
+      height: 30vh;
+      justify-content: flex-start;
+    }
+
+    #FooterNav a {
+      text-transform: none;
+      font-size: 1.2rem;
+      margin-top: 2vh;
+    }
+
+    #ReseauPc{
+      height: 30vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    #ReseauPc img{
+      margin-top: 5vh;
+      width: 3vw;
+      height: 4vh;
+    }
+  }
+
+  /*----------------------------------------- MAIN GENERAL */
+  section {
+    position: relative;
+    height: 100vh;
+    color: #F4FFC0;
+  }
+
+  .center{
+    padding: 15px 25px 0px 25px;
+    height: 80vh;
+  }
+
+   h1, .feminisme h2, .desert h2{
+    font-family: "Road Rage", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+    font-size: 15vw;
+    margin: 0;
+  }
+
+  .flexcenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .bouton {
+    display: block;
+    border-radius: 30px;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.5);
+    border: 0;
+    width: 80%;
+    color: white;
+    margin-top: 20px;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    width: fit-content;
+    z-index: 2;
+    transition: 0.2s;
+  }
+  .bouton:hover {
+    padding: 10px 15px 10px 15px;
+  }
+
+  @media screen and (min-width: 767px) {
+    .center {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+      padding-right: 10vw;
+      padding-left: 10vw;
+    }
+    h1 {
+      font-size: 7vw;
+    }
+    .bouton {
+      padding: 20px 7% 20px 7%;
+    }
+    .bouton:hover {
+      padding: 20px 9% 20px 9%;
+    }
+    
+  }
+  /*----------------------------------------- TRANSITIONS */
+
+#transition {
+    position: relative;
+    bottom: -2px;
+    margin-top: -25vh;
+    z-index: 1;
+    height: 35vh;
+    width: 100%;
+    background-position: bottom;
+  background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.transition_rouge {
+  background-image: url(../images/transitions/rouge.svg);
+}
+
+.transition_vert {
+  background-image: url(../images/transitions/vert.svg);
+}
+.nuit .transition_vert {
+  background-image: url(../images/transitions/vert_nuit.svg);
+}
+
+.transition_vert_fonce {
+  background-image: url(../images/transitions/vert_fonce.svg);
+}
+
+.nuit .transition_vert_fonce {
+  background-image: url(../images/transitions/vert_fonce_nuit.svg);
+}
+.transition_orange {
+  background-image: url(../images/transitions/orange.svg);
+}
+.nuit .transition_orange {
+  background-image: url(../images/transitions/orange_nuit.svg);
+}
+
+@media screen and (min-width: 635px) {
+
+  .transition_sable {
+    background-image: url(../images/transitions/SablePC.svg);
+  }
+
+  .transition_rouge {
+    background-image: url(../images/transitions/rouge_desk.svg);
+  }
+  
+  .transition_vert {
+    background-image: url(../images/transitions/vert_desk.svg);
+  }
+  
+  .transition_vert_fonce {
+    background-image: url(../images/transitions/vert_fonce_desk.svg);
+  }
+  
+  .transition_orange {
+    background-image: url(../images/transitions/orange_desk.svg);
+    height: 42vh!important;
+  }
+  
+  .nuit .transition_vert {
+    background-image: url(../images/transitions/violet_pc.svg);
+  }
+  
+  .nuit .transition_vert_fonce {
+    background-image: url(../images/transitions/magenta_pc.svg);
+  }
+  
+  .nuit .transition_orange {
+    background-image: url(../images/transitions/orange_desk_nuit.svg);
+  }
+}
+
+
+  /* --------------------------------------DESERT */
+  .desert {
+    background-color: var(--desert);
+    overflow: hidden;
+  }
+
+  .nuit .desert{
+    background-color: var(--desertNuit) ;
+  }
+
+  .date_lieu {
+    width: 40%;
+  }
+  .date_lieu h2 {
+    font-size: 2rem;
+  }
+
+  .frida_dance{
+    /* position: relative;
+    z-index: 0;
+    margin-top: -42vh;
+    margin-left: -20vw; */
+    width: 150vw;
+    max-width: 500px;
+    position: absolute;
+    bottom: 0;
+    right: -80px;
+  }
+
+  @media screen and (min-width: 767px) {
+    .date_lieu{
+      display: flex;
+    }
+
+    .frida_dance{
+      max-width: 800px;
+      right: auto;
+      left: 0;
+      transform: rotateY(180deg);
+      width: 80vw;
+    }
+    .desert .center {
+      flex-direction: column;
+      margin-left: 35vw;
+      width: initial;
+    }
+
+    .date_lieu{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+/* 
+    .desert h1{
+      font-size: 7rem;
+    }
+
+    .desert h2{
+      font-family: "Raleway", sans-serif;
+      font-size: 2rem;
+    }
+
+    .desert p{
+      font-size: 1.5rem;
+    }
+
+    .date_lieu div{
+      width: 25%;
+    }
+
+    .flexEnd{
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .TXTPC{
+      display: flex;
+      flex-direction: column;
+    } */
+
+  }
+
+/* --------------------------------------COMMUNISME */
+.communisme {
+    background-color: var(--communist);
+}
+
+.faucille {
+  position: absolute;
+  bottom: auto;
+  right: auto;
+  top: 23px;
+  left: -30vw;
+  width: 70vw;
+  max-width: 550px;
+  transform: rotate(27deg);
+  max-height: 100%;
+}
+.communisme strong {
+  text-align: end;
+  font-weight: 400;
+}
+.communisme .center {
+  padding-left: 40vw;
+}
+
+.communisme h1 {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+}
+
+.communisme .bouton {
+  background-color: #781A19;
+  position: relative;
+}
+
+@media screen and (min-width: 767px) {
+  .faucille {
+    top: auto;
+    left: auto;
+    bottom: -15px;
+    right: 8vw;
+    width: 52vw;
+    transform: rotate(0deg);
+  }
+  .communisme .center {
+    padding-right: 45vw;
+    padding-left: 10vw;
+    flex-direction: column;
+}
+.communisme h1 {
+  display: block;
+}
+}
+@media screen and (min-width: 500px) and (max-width: 767px) {
+  .faucille {
+    left: -35vw;
+  }
+  }
+
+/* --------------------------------------HERTIAGE */
+.heritage {
+    background-color: var(--heritage);
+}
+
+.nuit .heritage{
+  background-color: #3B365B;
+}
+.heritage .center {
+  padding-right: 30vw;
+}
+.frida_skeleton {
+  position: absolute;
+  right: 0;
+  width: 45vw;
+  bottom: 10%;
+  max-width: 240px;
+}
+.confettis {
+  position: absolute;
+  right: 10px;
+  top: 10%;
+  width: 30vw;
+}
+.heritage .bouton {
+  background-color: #2E4C18;
+}
+
+.nuit .heritage .bouton{
+  background-color: #2E294D;
+}
+.frida_skeleton_desk {
+  display: none;
+}
+@media screen and (min-width: 767px) {
+  .confettis, .frida_skeleton {
+    display: none;
+  }
+  .heritage .center {
+    flex-direction: row;
+    padding-right: 10vw;
+  }
+  .frida_skeleton_desk {
+    display: block;
+    width: 40vw;
+  }
+  .heritage .bouton {
+    margin-left: auto;
+  }
+}
+/* --------------------------------------FEMINISME */
+.feminisme {
+    background-color: var(--feminisme);
+}
+
+.nuit .feminisme{
+  background-color: #B05EBC;
+}
+
+.feminisme .center {
+  display: flex;
+  padding-left: 0;
+  height: 100vh;
+}
+.coeur {
+  width: 38vw;
+}
+
+.feminisme .bouton {
+  background-color: #142508;
+}
+
+.nuit .feminisme .bouton{
+  background-color: #763480;
+}
+
+.feminisme h2 {
+  transform: rotate(353deg) translate(-30%, 0);
+}
+@media screen and (min-width: 500x) {
+  .feminisme h2 {
+    transform: rotate(353deg) translate(-30%, 0) !important;
+  }
+}
+.coeur_desk {
+  display: none;
+}
+.div_image {
+  height: 92vh;
+  display: flex;
+}
+.feminisme h1{
+  display: none;
+}
+
+@media screen and (min-width: 767px) {
+  
+  .coeur {
+    display: none;
+  }
+  .feminisme h2 {
+    display: none;
+  }
+
+  .feminisme h1{
+    display: block;
+  }
+
+  .feminisme .center {
+    padding-left: 10vw;
+    height: 100%;
+  }
+  .coeur_desk {
+    display: block;
+    width: 40vw;
+    max-height: 90%;
+    margin-top: auto;
+  }
+
+  .nuit .feminisme{
+    background-color: #9C47AA;
+  }
+}
+
+.feminisme .flexcenter {
+  height: 80%;
+}
+/* --------------------------------------VIRTUEL */
+
+.virtuelle{
+  background-color: var(--virtuelle);
+}
+ 
+/* footer */
+
+.nuit .virtuelle{
+  background-color: var(--desertNuit);
+}
+
+.transition_footer{
+  background-image: url(../images/transitions/FooterMob.svg);
+  bottom: -20px;
+  margin-top: -30vh;
+}
+
+.virtuelle .center{
+  background-image: url(../images/accueil/VR_PC.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0;
+  }
+
+  .nuit .virtuelle .center{
+      background-image: url(../images/accueil/perso-casque-vr-nuit.svg);
+  }
+
+  .virtuelle .center h1{
+    font-size: 4rem;
+  }
+
+  .titrevirt{
+    padding-bottom: 17vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .virtuelle .bouton{
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    background-color: #472C14;
+  }
+
+  .nuit .virtuelle .bouton{
+    background-color: #36456B;
+  }
+
+  a{
+    color: white;
+    text-decoration: none;
+    z-index: 3;
+  }
+
+  @media screen and (min-width: 650px) {
+
+    .transition_footer{
+      background-image: url(../images/transitions/FooterPc.svg);
+      bottom: -20px;
+    }
+
+    .virtuelle .center{
+      background-image: url(../images/accueil/perso-casque-vr.svg);
+      background-position: bottom;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .center .titrevirt h1{
+      font-size: 7rem;
+    }
+
+    .virtuelle .bouton{
+      width: fit-content;
+      height: 9vh;
+      background-color: #451B34;
+      display: flex;
+      align-items: center;
+      margin-top: 10vh;
+      font-size: 1.5rem;
+    }
+  }
+
+  @media screen and (min-width: 650px) and (max-width: 780px) {
+    .virtuelle{
+      height: 150vh;
+    }
+  }
+
+  #trailer {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.697);
+    top: 0;
+    left: 0;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #trailer.active {
+    display: flex;
+  }
+  #trailer video {
+    width: 90%;
+  }
+  #fermervideo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 5vw;
+    cursor: pointer;
+    min-width: 30px;
+    max-width: 45px;
+  }
+
+  #fermervideo img {
+    width: 100%;
+  }

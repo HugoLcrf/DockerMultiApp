@@ -1,0 +1,11 @@
+.delete {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.delete:hover {
+    scale: 1.2;
+}
+.delete img {
+    max-width: 35px;
+}

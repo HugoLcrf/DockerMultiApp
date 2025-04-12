@@ -1,0 +1,9 @@
+.connexion {
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    padding: 25px;
+}
+.connexion input {
+    margin-bottom: 10px;
+}
