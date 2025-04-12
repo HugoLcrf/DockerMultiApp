@@ -1,0 +1,46 @@
+version: '3.8'  # version de la syntaxe Docker Compose
+
+services:       # tous les conteneurs que tu vas lancer
+  nextcloud:    # nom du service (tu choisis)
+    image: nextcloud  # image officielle depuis Docker Hub
+    ports:
+      - "80:80"       # port de ta machine : port dans le conteneur
+    volumes:
+      - nextcloud_data:/var/www/html  # volume persistant pour les fichiers
+    env_file:
+      - .env          # on importe les variables d'environnement (mots de passe, etc.)
+
+  onlyoffice:
+    image: onlyoffice/documentserver
+    depends_on:
+      - nextcloud     # attend que Nextcloud soit lancé avant de démarrer
+    env_file:
+      - .env
+
+  whiteboard:
+    image: aleixmp/whiteboard
+    depends_on:
+      - nextcloud
+
+  app_frontend:
+    build: ./app-web/frontend   # on utilise le Dockerfile situé ici
+    ports:
+      - "8080:80"
+    depends_on:
+      - app_db                  # on attend que la BDD soit prête
+    env_file:
+      - .env
+
+  app_db:
+    image: mysql
+    environment:               # variables d’environnement pour la BDD
+      MYSQL_ROOT_PASSWORD: ${APP_DB_ROOT_PWD}
+      MYSQL_DATABASE: ${APP_DB_NAME}
+      MYSQL_USER: ${APP_DB_USER}
+      MYSQL_PASSWORD: ${APP_DB_PASSWORD}
+    volumes:
+      - app_db_data:/var/lib/mysql
+
+volumes:
+  nextcloud_data:  # volume persistant pour Nextcloud
+  app_db_data:     # volume persistant pour ta base de données
