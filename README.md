@@ -17,6 +17,7 @@ Ce projet consiste à mettre en production un environnement complet à l’aide 
 - `nextcloud_db` : base de données MariaDB pour Nextcloud
 - `onlyoffice` : service complémentaire de Nextcloud pour l’édition de documents
 - `whiteboard` : application de tableau blanc collaboratif
+- `php` : acceder au Phpmyadmin
 
 ## Lancement du projet
 
@@ -37,6 +38,8 @@ L’ensemble des services sera lancé automatiquement.
 - Nextcloud : http://localhost:8082
 - OnlyOffice : http://localhost:8083
 - Whiteboard : http://localhost:8084
+- Php : http://localhost:8085
+
 
 ## Volumes et persistance des données
 
@@ -80,6 +83,7 @@ sudo nano /etc/hosts
 127.0.0.1 whiteboard.local
 127.0.0.1 api.local
 127.0.0.1 site.local
+127.0.0.1 phpmyadmin.local
 ```
 
 Pour y acceder : 
@@ -89,6 +93,7 @@ API	http://api.local:8081
 Nextcloud	http://nextcloud.local:8082
 OnlyOffice	http://onlyoffice.local:8083
 Whiteboard	http://whiteboard.local:8084
+http://phpmyadmin.local:8085
 
 Ces noms peuvent être utilisés avec un proxy ou à travers une configuration Nginx avancée.
 
@@ -106,3 +111,8 @@ Les services sont facilement maintenables :
 - Mise à jour possible par `docker-compose pull` sans perte de données
 - Possibilité d’adapter ou remplacer une image sans modifier l'ensemble de l'architecture
 - Ajout futur de reverse proxy, certificat SSL, monitoring possible sans tout redéployer
+
+## Propositions d'amélioration
+
+- Ajouter un reverse proxy (Nginx) pour accéder aux services via des domaines sans port.
+- Intégrer un système de monitoring.
