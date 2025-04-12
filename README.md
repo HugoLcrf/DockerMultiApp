@@ -72,6 +72,8 @@ docker-compose up --build
 
 En l’absence de serveur DNS, il est possible d’ajouter les entrées suivantes dans le fichier `hosts` de votre système (Linux/macOS : `/etc/hosts`, Windows : `C:\Windows\System32\drivers\etc\hosts`) :
 
+sudo nano /etc/hosts
+
 ```
 127.0.0.1 nextcloud.local
 127.0.0.1 onlyoffice.local
@@ -79,6 +81,14 @@ En l’absence de serveur DNS, il est possible d’ajouter les entrées suivante
 127.0.0.1 api.local
 127.0.0.1 site.local
 ```
+
+Pour y acceder : 
+
+Site Web	http://site.local:8080
+API	http://api.local:8081
+Nextcloud	http://nextcloud.local:8082
+OnlyOffice	http://onlyoffice.local:8083
+Whiteboard	http://whiteboard.local:8084
 
 Ces noms peuvent être utilisés avec un proxy ou à travers une configuration Nginx avancée.
 

@@ -73,6 +73,16 @@ services:
     ports:
       - "8084:80"
 
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8085:80"
+    environment:
+      PMA_HOST: frida_db
+      MYSQL_ROOT_PASSWORD: rootpwd
+
+
 volumes:
   frida_db_data:
   nextcloud_data:
