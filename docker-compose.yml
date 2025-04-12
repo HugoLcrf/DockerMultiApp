@@ -1,46 +1,84 @@
-version: '3.8'  # version de la syntaxe Docker Compose
+version: '3.8'
 
-services:       # tous les conteneurs que tu vas lancer
-  nextcloud:    # nom du service (tu choisis)
-    image: nextcloud  # image officielle depuis Docker Hub
+services:
+  #Site statique (HTML/CSS/JS)
+  frida_web:
+    build: ./frida         # Utilise le Dockerfile dans le dossier ./frida
     ports:
-      - "80:80"       # port de ta machine : port dans le conteneur
-    volumes:
-      - nextcloud_data:/var/www/html  # volume persistant pour les fichiers
-    env_file:
-      - .env          # on importe les variables d'environnement (mots de passe, etc.)
+      - "8080:80"          # Accès via http://localhost:8080
 
+  #API PHP (backend)
+  frida_api:
+    build: ./frida/api     # Utilise le Dockerfile dans ./frida/api
+    depends_on:
+      - frida_db           # Lance la BDD avant l'API
+    environment:           # Variables d'environnement passées au conteneur PHP
+      DB_HOST: frida_db
+      DB_NAME: frida
+      DB_USER: frida_user
+      DB_PASSWORD: frida_pwd
+    ports:
+      - "8081:80"          # Accès à l'API via http://localhost:8081
+
+  #Base de données MySQL pour l'API
+  frida_db:
+    image: mysql:8         # Image officielle MySQL
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpwd
+      MYSQL_DATABASE: frida
+      MYSQL_USER: frida_user
+      MYSQL_PASSWORD: frida_pwd
+    volumes:
+      - frida_db_data:/var/lib/mysql  # Stockage persistant des données
+      - ./frida/api/expo_frida.sql:/docker-entrypoint-initdb.d/init.sql:ro
+        # Initialise la base avec le fichier SQL au démarrage
+
+  # Nextcloud
+  nextcloud:
+    image: nextcloud
+    ports:
+      - "8082:80"          # Accès via http://localhost:8082
+    volumes:
+      - nextcloud_data:/var/www/html  # Persistance des fichiers et configs
+    depends_on:
+      - nextcloud_db       # Lance la BDD avant Nextcloud
+    environment:
+      MYSQL_PASSWORD: nextcloud_pwd
+      MYSQL_DATABASE: nextcloud
+      MYSQL_USER: nextcloud_user
+      MYSQL_HOST: nextcloud_db
+
+  # Base de données MariaDB pour Nextcloud
+  nextcloud_db:
+    image: mariadb         # Variante de MySQL optimisée pour Nextcloud
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpwd
+      MYSQL_DATABASE: nextcloud
+      MYSQL_USER: nextcloud_user
+      MYSQL_PASSWORD: nextcloud_pwd
+    volumes:
+      - nextcloud_db_data:/var/lib/mysql
+
+  # OnlyOffice pour édition collaborative dans Nextcloud
   onlyoffice:
     image: onlyoffice/documentserver
     depends_on:
-      - nextcloud     # attend que Nextcloud soit lancé avant de démarrer
-    env_file:
-      - .env
+      - nextcloud
+    ports:
+      - "8083:80"          # Accès via http://localhost:8083 (intégré à Nextcloud)
 
+  # Whiteboard : tableau blanc collaboratif
   whiteboard:
     image: aleixmp/whiteboard
     depends_on:
       - nextcloud
-
-  app_frontend:
-    build: ./app-web/frontend   # on utilise le Dockerfile situé ici
     ports:
-      - "8080:80"
-    depends_on:
-      - app_db                  # on attend que la BDD soit prête
-    env_file:
-      - .env
+      - "8084:8080"        # Accès via http://localhost:8084
+      # ⚠️ Ce service écoute sur 8080 dans le conteneur
 
-  app_db:
-    image: mysql
-    environment:               # variables d’environnement pour la BDD
-      MYSQL_ROOT_PASSWORD: ${APP_DB_ROOT_PWD}
-      MYSQL_DATABASE: ${APP_DB_NAME}
-      MYSQL_USER: ${APP_DB_USER}
-      MYSQL_PASSWORD: ${APP_DB_PASSWORD}
-    volumes:
-      - app_db_data:/var/lib/mysql
-
+# Volumes persistants
 volumes:
-  nextcloud_data:  # volume persistant pour Nextcloud
-  app_db_data:     # volume persistant pour ta base de données
+  frida_db_data:           # Données de la base MySQL de l'API
+  nextcloud_data:          # Fichiers et configuration Nextcloud
+  nextcloud_db_data:       # Données de la base MariaDB de Nextcloud
