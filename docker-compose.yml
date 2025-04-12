@@ -1,28 +1,28 @@
-version: '3.8'
+# Fichier docker-compose corrigé et commenté avec whiteboard lovasoa/wbo
 
 services:
-  #Site statique (HTML/CSS/JS)
+  # Site statique (HTML/CSS/JS)
   frida_web:
-    build: ./frida         # Utilise le Dockerfile dans le dossier ./frida
+    build: ./frida/front-end
     ports:
-      - "8080:80"          # Accès via http://localhost:8080
+      - "8080:80"
 
-  #API PHP (backend)
+  # API PHP + Apache
   frida_api:
-    build: ./frida/api     # Utilise le Dockerfile dans ./frida/api
+    build: ./frida/db
     depends_on:
-      - frida_db           # Lance la BDD avant l'API
-    environment:           # Variables d'environnement passées au conteneur PHP
+      - frida_db
+    environment:
       DB_HOST: frida_db
       DB_NAME: frida
       DB_USER: frida_user
       DB_PASSWORD: frida_pwd
     ports:
-      - "8081:80"          # Accès à l'API via http://localhost:8081
+      - "8081:80"
 
-  #Base de données MySQL pour l'API
+  # Base de données MySQL pour l'API
   frida_db:
-    image: mysql:8         # Image officielle MySQL
+    image: mysql:8
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpwd
@@ -30,19 +30,18 @@ services:
       MYSQL_USER: frida_user
       MYSQL_PASSWORD: frida_pwd
     volumes:
-      - frida_db_data:/var/lib/mysql  # Stockage persistant des données
-      - ./frida/api/expo_frida.sql:/docker-entrypoint-initdb.d/init.sql:ro
-        # Initialise la base avec le fichier SQL au démarrage
+      - frida_db_data:/var/lib/mysql
+      - ./frida/db/expo_frida.sql:/docker-entrypoint-initdb.d/init.sql:ro
 
   # Nextcloud
   nextcloud:
     image: nextcloud
     ports:
-      - "8082:80"          # Accès via http://localhost:8082
+      - "8082:80"
     volumes:
-      - nextcloud_data:/var/www/html  # Persistance des fichiers et configs
+      - nextcloud_data:/var/www/html
     depends_on:
-      - nextcloud_db       # Lance la BDD avant Nextcloud
+      - nextcloud_db
     environment:
       MYSQL_PASSWORD: nextcloud_pwd
       MYSQL_DATABASE: nextcloud
@@ -51,7 +50,7 @@ services:
 
   # Base de données MariaDB pour Nextcloud
   nextcloud_db:
-    image: mariadb         # Variante de MySQL optimisée pour Nextcloud
+    image: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: rootpwd
       MYSQL_DATABASE: nextcloud
@@ -60,25 +59,21 @@ services:
     volumes:
       - nextcloud_db_data:/var/lib/mysql
 
-  # OnlyOffice pour édition collaborative dans Nextcloud
+  # OnlyOffice pour édition collaborative
   onlyoffice:
     image: onlyoffice/documentserver
     depends_on:
       - nextcloud
     ports:
-      - "8083:80"          # Accès via http://localhost:8083 (intégré à Nextcloud)
+      - "8083:80"
 
-  # Whiteboard : tableau blanc collaboratif
+  # Whiteboard : tableau blanc collaboratif (lovasoa/wbo)
   whiteboard:
-    image: aleixmp/whiteboard
-    depends_on:
-      - nextcloud
+    image: lovasoa/wbo
     ports:
-      - "8084:8080"        # Accès via http://localhost:8084
-      # ⚠️ Ce service écoute sur 8080 dans le conteneur
+      - "8084:80"
 
-# Volumes persistants
 volumes:
-  frida_db_data:           # Données de la base MySQL de l'API
-  nextcloud_data:          # Fichiers et configuration Nextcloud
-  nextcloud_db_data:       # Données de la base MariaDB de Nextcloud
+  frida_db_data:
+  nextcloud_data:
+  nextcloud_db_data:
